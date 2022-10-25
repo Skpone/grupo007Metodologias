@@ -1,23 +1,9 @@
 <IfModule mod_rewrite.c>
-<<<<<<< HEAD
 	RewriteEngine On
-=======
-    RewriteEngine On
->>>>>>> 404bced9c341a58e7a750c007a9305799bef0f0c
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
 
     RewriteRule \.(?:css|js|jpe?g|gif|png)$ - [L]
 
-<<<<<<< HEAD
     RewriteRule ^(.*)$ router.php?action=$1 [QSA,L]
 </IfModule>
-=======
-    RewriteRule ^api/(.*)$ router-api.php?resource=$1 [QSA,L,END]
-    
-    RewriteRule ^(.*)$ router.php?action=$1 [QSA,L]
-
-
-
-</IfModule>
->>>>>>> 404bced9c341a58e7a750c007a9305799bef0f0c
