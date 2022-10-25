@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 03:07 AM
+-- Generation Time: Oct 25, 2022 at 03:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_tpe`
 --
+CREATE DATABASE IF NOT EXISTS `db_tpe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_tpe`;
 
 -- --------------------------------------------------------
 
@@ -36,6 +38,19 @@ CREATE TABLE `medico` (
   `especialidad` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `secretaria`
+--
+
+DROP TABLE IF EXISTS `secretaria`;
+CREATE TABLE `secretaria` (
+  `nro_secretaria` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `apellido` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -47,6 +62,12 @@ ALTER TABLE `medico`
   ADD PRIMARY KEY (`nro_medico`);
 
 --
+-- Indexes for table `secretaria`
+--
+ALTER TABLE `secretaria`
+  ADD PRIMARY KEY (`nro_secretaria`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -55,6 +76,12 @@ ALTER TABLE `medico`
 --
 ALTER TABLE `medico`
   MODIFY `nro_medico` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `secretaria`
+--
+ALTER TABLE `secretaria`
+  MODIFY `nro_secretaria` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
