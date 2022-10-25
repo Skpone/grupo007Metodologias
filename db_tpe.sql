@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 03:22 AM
+-- Generation Time: Oct 25, 2022 at 03:44 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -35,7 +35,8 @@ CREATE TABLE `medico` (
   `nombre` varchar(25) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `obra social` varchar(200) DEFAULT NULL,
-  `especialidad` varchar(30) DEFAULT NULL
+  `especialidad` varchar(30) DEFAULT NULL,
+  `nro_secretaria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -59,7 +60,8 @@ CREATE TABLE `secretaria` (
 -- Indexes for table `medico`
 --
 ALTER TABLE `medico`
-  ADD PRIMARY KEY (`nro_medico`);
+  ADD PRIMARY KEY (`nro_medico`),
+  ADD KEY `fk_nro_secretaria` (`nro_secretaria`);
 
 --
 -- Indexes for table `secretaria`
@@ -82,6 +84,16 @@ ALTER TABLE `medico`
 --
 ALTER TABLE `secretaria`
   MODIFY `nro_secretaria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `medico`
+--
+ALTER TABLE `medico`
+  ADD CONSTRAINT `fk_medico_secretaria` FOREIGN KEY (`nro_secretaria`) REFERENCES `secretaria` (`nro_secretaria`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
