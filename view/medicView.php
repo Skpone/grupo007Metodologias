@@ -10,7 +10,15 @@ class MedicView {
     }
 
     public function showPage() {
-        
+        $this->smarty->display('templates/firstPage.tpl');
     } 
+
+    function showMedics($medics){
+
+        $this->smarty->assign('medics', $medics);
+        $this->smarty->assign('title', 'Medicos');
+        $this->smarty->display('templates/medics.tpl');
+    }
+
     
 }

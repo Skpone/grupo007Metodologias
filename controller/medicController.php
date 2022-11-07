@@ -17,6 +17,11 @@ class MedicController {
         $this-> view -> showPage();
     }
 
+    function displayMedicsList(){
+        $medics = $this->model->getMedicos();
+        $this->view->showMedics($medics);
+    }
+
     function addMedic() {
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -29,5 +34,6 @@ class MedicController {
 
     function eraseMedic($id) {
         $this->model->deleteMedic($id);
+        header("Location: " . BASE_URL . "medicos");
     }
 }

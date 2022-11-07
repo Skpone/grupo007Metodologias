@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+<link href="css/style.secretaries.css" rel="stylesheet">
 
 <h1 class="title">Listado de secretarias</h1>
 
