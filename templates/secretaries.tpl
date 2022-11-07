@@ -11,7 +11,6 @@
 </div>
 {/foreach}
 
-<a class="btn btn-primary" href="#" role="button">AGREGAR SECRETARIA</a>
-<a class="btn btn-primary" href="#" role="button">ASIGNAR MEDICO</a>
-
+<button class="agregar-secretaria"><img src="templates/img/plus-icon.png"/>AGREGAR SECRETARIA</button>
+<button class="asignar-medico">ASIGNAR MÉDICO</button>
 {include file='templates/footer.tpl'}
