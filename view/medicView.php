@@ -9,6 +9,8 @@ class MedicView {
         $this->smarty = new Smarty();
     }
 
-
+    public function showPage() {
+        
+    } 
     
 }

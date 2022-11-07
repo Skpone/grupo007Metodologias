@@ -13,6 +13,10 @@ class MedicController {
     }
 
 
+    function showFirstPage() {
+        $this-> view -> showPage();
+    }
+
     function addMedic() {
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
