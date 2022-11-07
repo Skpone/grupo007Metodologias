@@ -21,19 +21,6 @@ switch ($params[0]) {
         $medicController = new medicController();
         $medicController->showFirstPage();
         break;
-    default:
-    echo '404 - Página no encontrada';
-    break;
-    }
-
-if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = 'home';
-}
-
-$params = explode('/', $action);
-switch ($params[0]) {
     case 'eliminarSecretaria':
         $secretaryController = new SecretaryController();
         $secretaryController->eraseSecretary($params[1]);
@@ -41,5 +28,8 @@ switch ($params[0]) {
     case 'secretarias':
         $secretaryController = new SecretaryController();
         $secretaryController->displaySecretariesList();
+        break;
+    default:
+        echo '404 - Página no encontrada';
         break;
 }
