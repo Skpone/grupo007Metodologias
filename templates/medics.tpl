@@ -11,4 +11,8 @@
 </div>
 {/foreach}
 
+<a class="btn btn-primary" href="{BASE_URL}nuevoMedico" role="button">AGREGAR MÉDICO</a>
+<a class="btn btn-primary" href="#" role="button">ASIGNAR SECRETARIA</a>
+
+
 {include file='templates/footer.tpl'}

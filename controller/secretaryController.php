@@ -24,4 +24,10 @@ class SecretaryController
         $secretaries = $this->model->getSecretarias();
         $this->view->showSecretaries($secretaries);
     }
+
+    function showNewSecretaryForm() {
+         $dataSecretarias = $this->modelS->getSecretarias();
+         $this->view->showAddSecretary($dataSecretarias);
+
+    }
 }

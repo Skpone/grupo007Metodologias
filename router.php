@@ -22,6 +22,18 @@ switch ($params[0]) {
         $medicController->showFirstPage();
 
         break;
+    case 'nuevoMedico':
+        $medicController = new MedicController();
+        $medicController->showNewMedicForm();
+        break;
+    case 'nuevaSecretaria':
+        $secretaryController = new SecretaryController();
+        $secretaryController->showNewSecretaryForm();
+        break;
+    case 'agregarMedico':
+        $medicController = new MedicController();
+        $medicController->addMedic();
+        break;
     case 'eliminarSecretaria':
         $secretaryController = new SecretaryController();
         $secretaryController->eraseSecretary($params[1]);

@@ -1,14 +1,17 @@
 <?php
 
 require_once 'model/medicModel.php';
+require_once 'model/secretaryModel.php';
 require_once 'view/medicView.php';
 
 class MedicController {
     private $view;
     private $model;
+    private $modelS;
 
     public function __construct() {
         $this->model = new MedicModel();
+        $this->modelS = new SecretaryModel();
         $this->view = new MedicView();
     }
 
@@ -22,14 +25,23 @@ class MedicController {
         $this->view->showMedics($medics);
     }
 
+    function showNewMedicForm() {
+        $dataSecretarias = $this->modelS->getSecretarias();
+        $this->view->showAddMedic($dataSecretarias);
+    }
+
     function addMedic() {
+
+        if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $obra_social = $_POST['obra-social'];
         $especialidad = $_POST['especialidad'];
         $nro_secretaria = $_POST['nro_secretaria'];
-
+        
         $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
+        header("Location: " . BASE_URL);
+        }
     }
 
     function eraseMedic($id) {
