@@ -4,8 +4,27 @@ require_once './controller/auth.controller.php';
 require_once './controller/medicController.php';
 require_once './controller/secretaryController.php';
 
-// defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
+
+if (!empty($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = 'admin';
+}
+
+
+$params = explode('/', $action);
+
+switch ($params[0]) {
+    case 'admin':
+        $medicController = new medicController();
+        $medicController->showFirstPage();
+        break;
+    default:
+    echo '404 - Página no encontrada';
+    break;
+    }
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
