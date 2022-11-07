@@ -34,7 +34,7 @@ CREATE TABLE `medico` (
   `nro_medico` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `obra social` varchar(200) DEFAULT NULL,
+  `obra_social` varchar(200) DEFAULT NULL,
   `especialidad` varchar(30) DEFAULT NULL,
   `nro_secretaria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
