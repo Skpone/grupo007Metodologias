@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model/medicModel.php';
+require_once 'view/medicView.php';
 
 class MedicController {
     private $view;
@@ -8,6 +9,7 @@ class MedicController {
 
     public function __construct() {
         $this->model = new MedicModel();
+        $this->view = new MedicView();
     }
 
 
