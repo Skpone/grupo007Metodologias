@@ -17,5 +17,11 @@ class SecretaryController
     function eraseSecretary($id)
     {
         $this->model->deleteSecretary($id);
+        header("Location: " . BASE_URL . "secretarias");
+    }
+    
+    function displaySecretariesList(){
+        $secretaries = $this->model->getSecretarias();
+        $this->view->showSecretaries($secretaries);
     }
 }
