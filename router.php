@@ -26,3 +26,16 @@ switch ($params[0]) {
     break;
     }
 
+if (!empty($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = 'home';
+}
+
+$params = explode('/', $action);
+switch ($params[0]) {
+    case 'verify':
+        $secretaryController = new SecretaryController();
+        $secretaryController->eraseSecretary($params[1]);
+        break;
+}
