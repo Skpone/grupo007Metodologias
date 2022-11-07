@@ -18,16 +18,25 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'admin':
-        $medicController = new medicController();
+        $medicController = new MedicController();
         $medicController->showFirstPage();
+
         break;
     case 'eliminarSecretaria':
         $secretaryController = new SecretaryController();
         $secretaryController->eraseSecretary($params[1]);
         break;
+    case 'eliminarMedico':
+        $secretaryController = new MedicController();
+        $secretaryController->eraseMedic($params[1]);
+        break;
     case 'secretarias':
         $secretaryController = new SecretaryController();
         $secretaryController->displaySecretariesList();
+        break;
+    case 'medicos':
+        $medicController = new MedicController();
+        $medicController->displayMedicsList();
         break;
     default:
         echo '404 - Página no encontrada';
