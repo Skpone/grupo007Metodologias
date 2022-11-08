@@ -23,6 +23,11 @@ class MedicController
         $this->view->showPage();
     }
 
+    function showNewMedicForm() {
+        $dataSecretarias = $this->modelS->getSecretarias();
+        $this->view->showAddMedic($dataSecretarias);
+    }
+
     function displayMedicsList($idSecretaria = null)
     {
         if (isset($idSecretaria)) {

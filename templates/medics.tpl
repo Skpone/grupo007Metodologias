@@ -20,12 +20,15 @@
         <a class="delete-medico" href="{BASE_URL}eliminarMedico/{$medico->nro_medico}" >X</a>
     </div>
 
-    <a class="btn btn-primary" href="{BASE_URL}nuevoMedico" role="button">AGREGAR MÉDICO</a>
     <a class="btn btn-primary" href="#" role="button">ASIGNAR SECRETARIA</a>
  {/if}
 
 {/foreach}
 
+
+<div>
+<a class="btn btn-primary" href="{BASE_URL}nuevoMedico" role="button">AGREGAR MÉDICO</a>
+</div>
 
 
 
