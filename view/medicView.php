@@ -23,5 +23,11 @@ class MedicView {
         $this->smarty->display('templates/medics.tpl');
     }
 
+    function showAddMedic($dataSecretarias) {
+        $this->smarty->assign('secretarias', $dataSecretarias);
+        $this->smarty->display('templates/newMedic.tpl');
+
+    }
+
     
 }

@@ -16,5 +16,8 @@ class SecretaryView {
         $this->smarty->display('templates/secretaries.tpl');
     }
 
+    function showAddSecretary($dataSecretarias) {
+        
+    }
     
 }
