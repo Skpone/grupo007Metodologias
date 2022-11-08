@@ -26,8 +26,22 @@ class SecretaryController
     }
 
     function showNewSecretaryForm() {
-         $dataSecretarias = $this->modelS->getSecretarias();
+         $dataSecretarias = $this->model->getSecretarias();
          $this->view->showAddSecretary($dataSecretarias);
 
+    }
+
+    function addSecretary(){
+        if (!empty($_POST['nombre']) && !empty($_POST['apellido'])) {
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+
+            $this->model->insertSecretary($nombre, $apellido);
+
+            header("Location: " . BASE_URL);
+        } else {
+
+            header("Location: " . BASE_URL . "agregarSecretaria");
+        }   
     }
 }

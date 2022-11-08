@@ -31,6 +31,9 @@ switch ($params[0]) {
     case 'nuevaSecretaria':
         $secretaryController->showNewSecretaryForm();
         break;
+    case 'agregarSecretaria':
+        $secretaryController->addSecretary();
+        break;
     case 'agregarMedico':
         $medicController->addMedic();
         break;

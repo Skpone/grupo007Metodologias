@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
 </head>
 
-   <h2>ALTA SECRETARIA:</h2>
+   <h2>{$title}</h2>
 
    <form method="POST" action="agregarSecretaria">
         <div class="mb-3 mt-2">

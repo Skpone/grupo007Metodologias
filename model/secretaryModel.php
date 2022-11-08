@@ -25,4 +25,11 @@ class SecretaryModel
         
         return $secretarias;
     }
+
+    function insertSecretary($nombre, $apellido){
+        $query = $this->db->prepare('INSERT INTO secretaria (nombre, apellido) 
+                                     VALUES (?, ?)');
+
+        $query->execute([$nombre, $apellido]);    
+    }
 }

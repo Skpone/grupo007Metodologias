@@ -17,7 +17,9 @@ class SecretaryView {
     }
 
     function showAddSecretary($dataSecretarias) {
-        
+        $this->smarty->assign('secretariesData', $dataSecretarias);
+        $this->smarty->assign('title', 'Alta Secretaria');
+        $this->smarty->display('templates/newSecretary.tpl'); 
     }
     
 }
