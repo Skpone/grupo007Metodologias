@@ -13,7 +13,10 @@ class MedicView {
         $this->smarty->display('templates/firstPage.tpl');
     } 
 
-    function showMedics($medics){
+    function showMedics($medics,$idSecretaria=null){
+        if(isset($idSecretaria)){
+            $this->smarty->assign('idSecretaria', $idSecretaria);
+        }
 
         $this->smarty->assign('medics', $medics);
         $this->smarty->assign('title', 'Medicos');

@@ -34,6 +34,14 @@ switch ($params[0]) {
         $secretaryController = new SecretaryController();
         $secretaryController->displaySecretariesList();
         break;
+    case 'elegirMedico':
+        $medicController = new MedicController();
+        $medicController->displayMedicsList($params[1]);
+        break;
+    case 'asignarMedico':
+        $medicController = new MedicController();
+        $medicController->asignarSecretaria($params[1],$params[2]);
+        break;
     case 'medicos':
         $medicController = new MedicController();
         $medicController->displayMedicsList();

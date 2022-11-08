@@ -29,5 +29,12 @@ class MedicModel {
 
         $query->execute([$id]);
     }
+    
+    function asignSecretarie($idSecretaria,$idMedico){
+        $query = $this->db->prepare('UPDATE medico SET nro_secretaria= ? WHERE nro_medico = ?');
+
+        $query->execute([$idSecretaria, $idMedico]);
+
+    }
 }
 
