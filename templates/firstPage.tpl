@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+<link href="css/style.general.css" rel="stylesheet">
 
-<a class="btn btn-primary" href="{BASE_URL}medicos" role="button">MEDICOS</a>
-<a class="btn btn-primary" href="{BASE_URL}secretarias" role="button">SECRETARIAS</a>
+<button class='medico-button'><a href="{BASE_URL}medicos">MEDICOS</a></button>
+<button class='secretaria-button'><a href="{BASE_URL}secretarias">SECRETARIAS</a></button>

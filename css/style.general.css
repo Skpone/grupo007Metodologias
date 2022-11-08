@@ -1,0 +1,31 @@
+button.medico-button{
+    position: relative;
+    top: 130px;
+    left: 21%;
+    width: 346px;
+    height: 95px;
+    border: 0;
+    border-radius: 31px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 38px;
+}
+button.secretaria-button{
+    position: relative;
+    top: 130px;
+    left: 30%;
+    width: 346px;
+    height: 95px;
+    border: 0;
+    border-radius: 31px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 38px;
+
+}
+button.secretaria-button a, button.medico-button a {
+    color: rgba(232, 100, 100, 0.82);
+}
+body{
+    background-color: #d3e5ff;
+}

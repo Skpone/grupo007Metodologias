@@ -22,7 +22,7 @@
             <a class="delete-medico" href="{BASE_URL}eliminarMedico/{$medico->nro_medico}">X</a>
         </div>
 
-        <a class="btn btn-primary" href="#" role="button">ASIGNAR SECRETARIA</a>
+        <a class="btn btn-primary btn-asignar-secretaria" href="{BASE_URL}secretarias" role="button">ASIGNAR SECRETARIA</a>
     {/if}
 
 {/foreach}

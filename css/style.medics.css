@@ -62,7 +62,7 @@ div.medico-container{
 form{
     width: 23%;
     position: relative;
-    top: -80px;
+    top: -300px;
     left: 5%;
 }
 form button{
@@ -90,4 +90,17 @@ form button{
 .btn-agregar-medico:hover{
     color: rgba(232, 100, 100, 0.82);
     background: #DBDBDB;
+}
+.btn-asignar-secretaria{
+    position: relative;
+    left: 69%;
+    width: 14%;
+    top: -11px;
+    height: 41px;
+    border-radius: 0px;
+    border: 0;
+    background: black;
+}
+.btn-asignar-secretaria:hover{
+    background: black;
 }
