@@ -38,7 +38,7 @@ class SecretaryController
 
             $this->model->insertSecretary($nombre, $apellido);
 
-            header("Location: " . BASE_URL);
+            header("Location: " . BASE_URL . "secretarias");
         } else {
 
             header("Location: " . BASE_URL . "agregarSecretaria");

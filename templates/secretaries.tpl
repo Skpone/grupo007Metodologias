@@ -11,6 +11,6 @@
 </div>
 {/foreach}
 
-<button class="agregar-secretaria"><img src="templates/img/plus-icon.png"/>AGREGAR SECRETARIA</button>
-<button class="asignar-medico"><a class="go-asignar-medico"href="{BASE_URL}elegirMedico/{$secretaria->nro_secretaria}">ASIGNAR MÉDICO</a></button>
+<button class="agregar-secretaria"><a class="go-asignar-medico" href="{BASE_URL}nuevaSecretaria"><img src="templates/img/plus-icon.png"/>AGREGAR SECRETARIA</button>
+<button class="asignar-medico"><a class="go-asignar-medico" href="{BASE_URL}elegirMedico/{$secretaria->nro_secretaria}">ASIGNAR MÉDICO</a></button>
 {include file='templates/footer.tpl'} 

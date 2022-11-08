@@ -51,10 +51,10 @@ class MedicController
 
                 if ($nro_secretaria = NULL) {
                     $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria = null);
-                    header("Location: " . BASE_URL);
+                    header("Location: " . BASE_URL . "medicos");
                 } else {
                     $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
-                    header("Location: " . BASE_URL);
+                    header("Location: " . BASE_URL . "medicos");
                 }
             }
         }
