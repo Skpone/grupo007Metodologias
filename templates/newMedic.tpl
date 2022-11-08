@@ -33,11 +33,7 @@
         </select>
 
         <div class="col-auto">
-        <div class="alert alert-primary" role="alert">
-            Si buscás una secretaria que no está en la lista, primero debe agregarla desde la pestaña de <a href="{BASE_URL}nuevaSecretaria">Alta de secretaria</a>
-            </div>
         <button type="submit" class="btn btn-primary mb-3">AGREGAR MÉDICO</button>
-
         </div>
 
 
