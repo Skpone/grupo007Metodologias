@@ -1,16 +1,20 @@
 <?php
 
 require_once 'model/secretaryModel.php';
+require_once 'model/medicModel.php';
+
 require_once 'view/secretaryView.php';
 
 class SecretaryController
 {
     private $view;
     private $model;
+    private $modelM;
 
     public function __construct()
     {
         $this->model = new SecretaryModel();
+        $this->modelM = new MedicModel();
         $this->view = new SecretaryView();
     }
 
@@ -22,7 +26,8 @@ class SecretaryController
     
     function displaySecretariesList(){
         $secretaries = $this->model->getSecretarias();
-        $this->view->showSecretaries($secretaries);
+        $medics = $this->modelM->getMedicos();
+        $this->view->showSecretaries($secretaries, $medics);
     }
 
     function showNewSecretaryForm() {
