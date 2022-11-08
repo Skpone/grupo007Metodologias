@@ -26,14 +26,18 @@ class SecretaryController
     
     function displaySecretariesList(){
         $secretaries = $this->model->getSecretarias();
-        $medics = $this->modelM->getMedicos();
-        $this->view->showSecretaries($secretaries, $medics);
+        $this->view->showSecretaries($secretaries);
     }
 
     function showNewSecretaryForm() {
          $dataSecretarias = $this->model->getSecretarias();
          $this->view->showAddSecretary($dataSecretarias);
 
+    }
+    function displaySecretariaParticular($idSecretaria){
+        $dataSecretaria = $this->model->getSecretarias($idSecretaria);
+        $medics = $this->modelM->getMedicos($idSecretaria);
+        $this->view->showSecretaria($dataSecretaria, $medics);
     }
 
     function addSecretary(){

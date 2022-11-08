@@ -16,20 +16,28 @@ class SecretaryModel
         $query->execute([$id]);
     }
 
-    function getSecretarias()
+    function getSecretarias($idSecretaria = null)
     {
-        $query = $this->db->prepare('SELECT * FROM secretaria');
-        $query->execute();
-
-        $secretarias = $query->fetchAll(PDO::FETCH_OBJ);
+        if (isset($idSecretaria)) {
+            $query = $this->db->prepare('SELECT * FROM secretaria WHERE nro_secretaria = ?');
+            $query->execute([$idSecretaria]);
+            $secretarias = $query->fetchAll(PDO::FETCH_OBJ);
+        }
+        else{
+            $query = $this->db->prepare('SELECT * FROM secretaria');
+            $query->execute();
+    
+            $secretarias = $query->fetchAll(PDO::FETCH_OBJ);
+        }
         
         return $secretarias;
     }
 
-    function insertSecretary($nombre, $apellido){
+    function insertSecretary($nombre, $apellido)
+    {
         $query = $this->db->prepare('INSERT INTO secretaria (nombre, apellido) 
                                      VALUES (?, ?)');
 
-        $query->execute([$nombre, $apellido]);    
+        $query->execute([$nombre, $apellido]);
     }
 }

@@ -9,12 +9,18 @@ class SecretaryView {
         $this->smarty = new Smarty();
     }
 
-    function showSecretaries($secretaries, $medics){
+    function showSecretaries($secretaries){
 
         $this->smarty->assign('secretaries', $secretaries);
-        $this->smarty->assign('medics', $medics);
         $this->smarty->assign('title', 'Secretarias');
         $this->smarty->display('templates/secretaries.tpl');
+    }
+
+    function showSecretaria($secretaria,$medicos){
+        $this->smarty->assign('medicos', $medicos);
+        $this->smarty->assign('title', 'Secretaria');
+        $this->smarty->assign('secretaria',$secretaria);
+        $this->smarty->display('templates/secretaria.tpl');
     }
 
     function showAddSecretary($dataSecretarias) {
