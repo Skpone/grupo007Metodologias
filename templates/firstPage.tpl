@@ -1,5 +1,10 @@
 {include file='templates/header.tpl'}
-<link href="css/style.general.css" rel="stylesheet">
+<link href="css/style.firstPage.css" rel="stylesheet">
 
-<button class='medico-button'><a href="{BASE_URL}medicos">MEDICOS</a></button>
-<button class='secretaria-button'><a href="{BASE_URL}secretarias">SECRETARIAS</a></button>
+
+<div class="btn1">
+<a class="btn btn-primary" href="{BASE_URL}medicos" role="button">MEDICOS</a>
+</div>
+<div  class="btn2">
+<a class="btn btn-primary" href="{BASE_URL}secretarias" role="button">SECRETARIAS</a>
+</div>
