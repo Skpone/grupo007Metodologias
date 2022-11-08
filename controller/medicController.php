@@ -56,6 +56,9 @@ class MedicController
                     $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
                     header("Location: " . BASE_URL . "medicos");
                 }
+            } else {
+                
+                header("Location: " . BASE_URL . "nuevoMedico");
             }
         }
 
