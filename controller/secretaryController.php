@@ -50,7 +50,7 @@ class SecretaryController
             header("Location: " . BASE_URL . "secretarias");
         } else {
 
-            header("Location: " . BASE_URL . "agregarSecretaria");
+            header("Location: " . BASE_URL . "nuevaSecretaria");
         }   
     }
 }
