@@ -23,6 +23,7 @@ class MedicModel {
 
         $query->execute([$nombre, $apellido, $obra_social, $especialidad, $nro_secretaria]);
     }
+    
 
     function deleteMedic($id) {
         $query = $this->db->prepare('DELETE FROM medico WHERE nro_medico = ?');

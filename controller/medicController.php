@@ -33,15 +33,23 @@ class MedicController {
     function addMedic() {
 
         if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $obra_social = $_POST['obra-social'];
-        $especialidad = $_POST['especialidad'];
-        $nro_secretaria = $_POST['nro_secretaria'];
-        
-        $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
-        header("Location: " . BASE_URL);
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $obra_social = $_POST['obra-social'];
+            $especialidad = $_POST['especialidad'];
+            $nro_secretaria = $_POST['nro_secretaria'];
+            
+            if($nro_secretaria = NULL) {
+            $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria= null);
+            header("Location: " . BASE_URL);
+            } else{
+                $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
+                header("Location: " . BASE_URL);
+                }
+
+            
         }
+        
     }
 
     function eraseMedic($id) {
