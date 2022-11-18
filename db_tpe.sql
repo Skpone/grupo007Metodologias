@@ -78,7 +78,7 @@ CREATE TABLE `turnos_venideros` (
 -- Indexes for table `medico`
 --
 ALTER TABLE `medico`
-  ADD PRIMARY KEY (`nro_medico`),
+  ADD PRIMARY KEY (`nro_medico`,`nombre_usuario`),
   ADD KEY `fk_medico_nro_secretaria` (`nro_secretaria`) USING BTREE;
 
 --

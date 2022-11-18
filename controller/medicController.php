@@ -17,7 +17,6 @@ class MedicController
         $this->view = new MedicView();
     }
 
-
     function showFirstPage()
     {
         $this->view->showPage();
