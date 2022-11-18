@@ -36,7 +36,9 @@ CREATE TABLE `medico` (
   `apellido` varchar(50) NOT NULL,
   `obra_social` varchar(200) DEFAULT NULL,
   `especialidad` varchar(30) DEFAULT NULL,
-  `nro_secretaria` int(11) DEFAULT NULL
+  `nro_secretaria` int(11) DEFAULT NULL,
+  `nombre_usuario` varchar(60),
+  `contrasenia` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
