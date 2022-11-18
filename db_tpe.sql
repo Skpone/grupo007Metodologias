@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 03:44 AM
+-- Generation Time: Nov 18, 2022 at 06:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -54,6 +54,22 @@ CREATE TABLE `secretaria` (
   `apellido` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `turnos_venideros`
+--
+
+DROP TABLE IF EXISTS `turnos_venideros`;
+CREATE TABLE `turnos_venideros` (
+  `nro_turno` int(11) NOT NULL,
+  `nro_medico` int(11) NOT NULL,
+  `nombre_paciente` varchar(50) NOT NULL,
+  `fecha_turno` date NOT NULL,
+  `tiempo_turno` time NOT NULL,
+  `detalles` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -63,13 +79,20 @@ CREATE TABLE `secretaria` (
 --
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`nro_medico`),
-  ADD KEY `fk_nro_secretaria` (`nro_secretaria`);
+  ADD KEY `fk_medico_nro_secretaria` (`nro_secretaria`) USING BTREE;
 
 --
 -- Indexes for table `secretaria`
 --
 ALTER TABLE `secretaria`
   ADD PRIMARY KEY (`nro_secretaria`);
+
+--
+-- Indexes for table `turnos_venideros`
+--
+ALTER TABLE `turnos_venideros`
+  ADD PRIMARY KEY (`nro_turno`,`nro_medico`),
+  ADD KEY `fk_turnos_venideros_nro_medico` (`nro_medico`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -88,6 +111,12 @@ ALTER TABLE `secretaria`
   MODIFY `nro_secretaria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `turnos_venideros`
+--
+ALTER TABLE `turnos_venideros`
+  MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -95,7 +124,13 @@ ALTER TABLE `secretaria`
 -- Constraints for table `medico`
 --
 ALTER TABLE `medico`
-  ADD CONSTRAINT `fk_medico_secretaria` FOREIGN KEY (`nro_secretaria`) REFERENCES `secretaria` (`nro_secretaria`) ON DELETE SET NULL ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_medico_secretaria` FOREIGN KEY (`nro_secretaria`) REFERENCES `secretaria` (`nro_secretaria`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `turnos_venideros`
+--
+ALTER TABLE `turnos_venideros`
+  ADD CONSTRAINT `turnos_venideros_ibfk_1` FOREIGN KEY (`nro_medico`) REFERENCES `medico` (`nro_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
