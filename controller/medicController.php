@@ -38,28 +38,39 @@ class MedicController
         }
     }
 
-    function addMedic()
-        {
+    function addMedic() {
 
-            if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $obra_social = $_POST['obra-social'];
-                $especialidad = $_POST['especialidad'];
-                $nro_secretaria = $_POST['nro_secretaria'];
+        if (!empty($_POST['nombre_usuario']) && !empty($_POST['contrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {
+            $nombre_usuario = $_POST['nombre_usuario'];
+            $contrasenia = password_hash($_POST['contrasenia'], PASSWORD_BCRYPT);
+            
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $obra_social = $_POST['obra-social'];
+            $especialidad = $_POST['especialidad'];
+            $nro_secretaria = $_POST['nro_secretaria'];
+            
+            //se le pregunta a la BD si hay un medico con ese nombre de usuario (si no retorna nada es que no hay)
+            $user = $this->model->getMedicByUsername($nombre_usuario);
 
+            if (empty($user)) {
                 if ($nro_secretaria = NULL) {
-                    $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria = null);
+                    $this->model->insertMedic($nombre_usuario, $contrasenia, $nombre, $apellido, $obra_social, $especialidad, $nro_secretaria = null);
                     header("Location: " . BASE_URL . "medicos");
                 } else {
-                    $this->model->insertMedic($nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
+                    $this->model->insertMedic($nombre_usuario, $contrasenia, $nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
                     header("Location: " . BASE_URL . "medicos");
                 }
+
             } else {
-                
                 header("Location: " . BASE_URL . "nuevoMedico");
             }
+            
+        } else {
+            
+            header("Location: " . BASE_URL . "nuevoMedico");
         }
+    }
 
         function eraseMedic($id)
         {

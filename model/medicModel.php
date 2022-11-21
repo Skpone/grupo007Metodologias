@@ -29,12 +29,21 @@ class MedicModel
         }
     }
 
-    function insertMedic($nombre, $apellido, $obra_social = null, $especialidad = null, $nro_secretaria = null)
-    {
-        $query = $this->db->prepare('INSERT INTO medico (nro_medico, nombre, apellido, obra_social, especialidad, nro_secretaria) 
-                                     VALUES (NULL, ?, ?, ?, ?, ?)');
+    function getMedicByUsername($nombre_usuario) {
+        $query = $this->db->prepare('SELECT * FROM medico WHERE nombre_usuario = ?');
+        $query->execute([$nombre_usuario]);
 
-        $query->execute([$nombre, $apellido, $obra_social, $especialidad, $nro_secretaria]);
+        $medic = $query->fetch(PDO::FETCH_OBJ);
+
+        return $medic;
+    }
+
+    function insertMedic($nombre_usuario, $contrasenia, $nombre, $apellido, $obra_social = null, $especialidad = null, $nro_secretaria = null)
+    {
+        $query = $this->db->prepare('INSERT INTO medico (nro_medico, nombre, apellido, obra_social, especialidad, nro_secretaria, nombre_usuario, contrasenia) 
+                                     VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)');
+
+        $query->execute([$nombre, $apellido, $obra_social, $especialidad, $nro_secretaria, $nombre_usuario, $contrasenia]);
     }
 
 
