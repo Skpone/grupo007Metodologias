@@ -38,6 +38,15 @@ class MedicModel
         return $medic;
     }
 
+    function getMedicIdByUsername($nombre_usuario) {
+        $query = $this->db->prepare('SELECT nro_medico FROM medico WHERE nombre_usuario = ?');
+        $query->execute([$nombre_usuario]);
+
+        $medicId = $query->fetch(PDO::FETCH_OBJ);
+
+        return $medicId;
+    }
+
     function insertMedic($nombre_usuario, $contrasenia, $nombre, $apellido, $obra_social = null, $especialidad = null, $nro_secretaria = null)
     {
         $query = $this->db->prepare('INSERT INTO medico (nro_medico, nombre, apellido, obra_social, especialidad, nro_secretaria, nombre_usuario, contrasenia) 
