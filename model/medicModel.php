@@ -60,4 +60,13 @@ class MedicModel
 
         $query->execute([$idSecretaria, $idMedico]);
     }
+
+    function getMedicAgenda($id_medico) {
+        $query = $this->db->prepare('SELECT * FROM turnos_venideros WHERE nro_medico = ?');
+        $query->execute([$id_medico]);
+
+        $medic = $query->fetch(PDO::FETCH_OBJ);
+
+        return $medic;
+    }
 }

@@ -30,5 +30,11 @@ class MedicView {
 
     }
 
+    function listMedicAgendalistMedicAgenda($agenda){
+        $this->smarty->assign('agenda', $agenda);
+        $this->smarty->assign('title', 'Lista Turnos Venideros');
+        $this->smarty->display('templates/medicAgenda.tpl');
+    }
+
     
 }

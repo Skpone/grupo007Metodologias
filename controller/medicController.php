@@ -72,19 +72,29 @@ class MedicController
         }
     }
 
-        function eraseMedic($id)
-        {
-            $this->model->deleteMedic($id);
-            header("Location: " . BASE_URL . "medicos");
-        }
-
-        function asignarSecretaria($idSecretaria, $idMedico)
-        {
-            if (isset($idSecretaria) && isset($idMedico)) {
-                $this->model->asignSecretarie($idSecretaria, $idMedico);
-            }
-
-            header("Location: " . BASE_URL . "secretarias");
-        }
+    function eraseMedic($id)
+    {
+        $this->model->deleteMedic($id);
+        header("Location: " . BASE_URL . "medicos");
     }
+
+    function asignarSecretaria($idSecretaria, $idMedico)
+    {
+        if (isset($idSecretaria) && isset($idMedico)) {
+            $this->model->asignSecretarie($idSecretaria, $idMedico);
+        }
+
+        header("Location: " . BASE_URL . "secretarias");
+    }
+
+    function showMedicAgenda($idMedico){
+        if ((isset(session_id)) && (session_id == $id_medico)) {
+            $agenda = $this->model->getMedicAgenda($idMedico);
+            $this->view->listMedicAgenda($agenda);
+        } else {
+            header("Location: " . BASE_URL . "login");
+        }
+    
+    }
+}
 
