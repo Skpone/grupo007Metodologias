@@ -11,8 +11,8 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
-<body> 
-<header>
+<body>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href=""> Inicio</a>
@@ -23,11 +23,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav justify-content-end">
-                        {if isset($smarty.session.USER_ID)} 
+                        {if isset($smarty.session.USER_ID)}
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
+                                <a class="nav-link active" aria-current="page" href="logout">({$smarty.session.USER_NAME})
+                                    Logout</a>
                             </li>
-                         {else}
+                        {else}
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="login">Login</a>
                             </li>
@@ -38,6 +39,4 @@
         </nav>
     </header>
 
-</body> 
-
-    
+</body>
