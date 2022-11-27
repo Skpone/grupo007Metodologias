@@ -22,26 +22,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href=" ">Médico</a>
-                        <li class="nav-item dropdown">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href=" ">Secretarias</a>
-                        </li>
-                    </ul>
-                    
                     <ul class="nav justify-content-end">
-                    {if isset($smarty.session.USER_ID)} 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
-                        </li>
-                    {else}
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="login">Login</a>
-                        </li>
-                    {/if}
-   
+                        {if isset($smarty.session.USER_ID)} 
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
+                            </li>
+                         {else}
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="login">Login</a>
+                            </li>
+                        {/if}
                     </ul>
                 </div>
             </div>
