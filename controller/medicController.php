@@ -3,6 +3,7 @@
 require_once 'model/medicModel.php';
 require_once 'model/secretaryModel.php';
 require_once 'view/medicView.php';
+require_once './helpers/auth.helper.php';
 
 class MedicController
 {
@@ -12,9 +13,11 @@ class MedicController
 
     public function __construct()
     {
+
         $this->model = new MedicModel();
         $this->modelS = new SecretaryModel();
         $this->view = new MedicView();
+        $this->authHelper = new AuthHelper();
     }
 
     function showFirstPage()
@@ -127,6 +130,12 @@ class MedicController
          else {
              header("Location: " . BASE_URL . "login");
          }
+    }
+
+    function logout()
+    {
+        session_destroy();
+        $this->authHelper->logout();
     }
 
     //parsear html date input a input para sql

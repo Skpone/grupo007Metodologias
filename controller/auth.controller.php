@@ -8,6 +8,5 @@ class AuthController{
     private $view;
     
 
-
    
 }

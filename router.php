@@ -18,6 +18,7 @@ $params = explode('/', $action);
 
 $medicController = new MedicController();
 $secretaryController = new SecretaryController();
+$authController = new AuthController();
 
 
 switch ($params[0]) {
@@ -62,6 +63,9 @@ switch ($params[0]) {
         break;
     case 'login':
         $medicController->displayLogin();
+        break;
+    case 'logout':
+        $medicController->logout();
         break;
     case 'home-medico':
         $medicController->displayHomeMedico($params[1]);
