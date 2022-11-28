@@ -65,8 +65,7 @@ CREATE TABLE `turnos_venideros` (
   `nro_turno` int(11) NOT NULL,
   `nro_medico` int(11) NOT NULL,
   `nombre_paciente` varchar(50) NOT NULL,
-  `fecha_turno` date NOT NULL,
-  `tiempo_turno` time NOT NULL,
+  `fecha_turno` datetime NOT NULL,
   `detalles` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

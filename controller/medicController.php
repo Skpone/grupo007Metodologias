@@ -101,5 +101,11 @@ class MedicController
         }
     
     }
+
+    //parsear html date input a input para sql
+    //$input_date=$_POST['date'];
+    //$date=date("Y-m-d H:i:s",strtotime($input_date));
+    //https://stackoverflow.com/questions/44969782/submitting-php-html-date-to-mysql-date
+
 }
 

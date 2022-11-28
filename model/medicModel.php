@@ -78,4 +78,35 @@ class MedicModel
 
         return $medic;
     }
+
+    function getMedicAgendaAll($id_medico,$fechaDesde, $fechaHasta)
+    {
+        $query = $this->db->prepare('SELECT * FROM turnos_venideros WHERE nro_medico = ? AND fecha_turno IS BETWEEN ? AND ?');
+        $query->execute([$id_medico,$fechaDesde, $fechaHasta]);
+
+        $agenda = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $agenda;
+    }
+
+    function getMedicAgendaMorning($id_medico,$fechaDesde, $fechaHasta)
+    {
+        $query = $this->db->prepare('SELECT * FROM turnos_venideros WHERE nro_medico = ? AND fecha_turno IS BETWEEN ? AND ? AND EXTRACT(HOUR FROM fecha_turno) IS BETWEEN 6 AND 12');
+        $query->execute([$id_medico,$fechaDesde, $fechaHasta]);
+
+        $agenda = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $agenda;
+    }
+
+    
+    function getMedicAgendaAfternoon($id_medico,$fechaDesde, $fechaHasta)
+    {
+        $query = $this->db->prepare('SELECT * FROM turnos_venideros WHERE nro_medico = ? AND fecha_turno IS BETWEEN ? AND ? AND EXTRACT(HOUR FROM fecha_turno) IS BETWEEN 14 AND 19');
+        $query->execute([$id_medico,$fechaDesde, $fechaHasta]);
+
+        $agenda = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $agenda;
+    }
 }
