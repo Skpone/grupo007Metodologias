@@ -61,6 +61,9 @@ switch ($params[0]) {
     case 'medicAgenda':
         $medicController->displayMedicsList();
         break;
+    case 'login':
+        $medicController->displayLogin();
+        break;
     default:
         echo '404 - Página no encontrada';
         break;

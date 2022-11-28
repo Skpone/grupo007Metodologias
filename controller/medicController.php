@@ -102,6 +102,11 @@ class MedicController
     
     }
 
+    public function displayLogin()
+    {
+        $this->view->showLogin();
+    }
+
     //parsear html date input a input para sql
     //$input_date=$_POST['date'];
     //$date=date("Y-m-d H:i:s",strtotime($input_date));

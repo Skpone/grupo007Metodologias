@@ -36,5 +36,11 @@ class MedicView {
         $this->smarty->display('templates/medicAgenda.tpl');
     }
 
+    public function showLogin()
+    {
+        $this->smarty->assign('title', 'Login');
+        $this->smarty->display('templates/login.tpl');
+    }
+
     
 }
