@@ -63,6 +63,12 @@ switch ($params[0]) {
     case 'login':
         $medicController->displayLogin();
         break;
+    case 'home-medico':
+        $medicController->displayHomeMedico($params[1]);
+        break;
+    case 'detallesCuenta':
+        $medicController->displayDetallesMedico($params[1]);
+        break;
     default:
         echo '404 - Página no encontrada';
         break;

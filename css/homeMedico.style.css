@@ -1,0 +1,65 @@
+.medico-title{
+    width: 19%;
+    position: absolute;
+    left: 40%;
+    top: 490px;
+}
+.img-medico{
+    position: absolute;
+    left: 36%;
+    border-radius: 921px;
+    width: 363px;
+    height: 349px;
+    top: 105px;
+    border: 4px solid #9a9aff;
+}
+.img-medico:hover{
+    border: 4px solid black;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.medico-nombre{
+    width: 41%;
+    position: absolute;
+    left: 30%;
+    top: 30px;
+}
+.medico-os{
+    width: 24%;
+    position: absolute;
+    left: 3%;
+    top: 150px;
+}
+.medico-especialidad {
+    width: 42%;
+    position: absolute;
+    left: 73%;
+    top: 150px;
+}
+
+.img-medico-detalle{
+    position: absolute;
+    left: 3%;
+    border-radius: 921px;
+    width: 363px;
+    height: 349px;
+    top: 165px;
+    border: 4px solid #9a9aff;
+}
+.img-medico-detalle:hover{
+    border: 4px solid black;
+    transition: 0.25s;
+    cursor: pointer;
+}
+div.data-medico{
+    width: 57%;
+    height: 500px;
+    position: absolute;
+    top: 125px;
+    left: 37%;
+    border-radius: 8px;
+    border: 0;
+    background-color: #D5DCEC;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}

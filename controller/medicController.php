@@ -107,6 +107,28 @@ class MedicController
         $this->view->showLogin();
     }
 
+    public function displayHomeMedico($idMedico)
+    {
+        if (isset($idMedico)) {
+           $dataMedico = $this->model->getMedicById($idMedico);
+           $this->view->homeMedico($dataMedico);
+
+        }
+        else {
+            header("Location: " . BASE_URL . "login");
+        }
+    }
+    public function displayDetallesMedico($idMedico)
+    {
+        if (isset($idMedico)) {
+            $dataMedico = $this->model->getMedicById($idMedico);
+            $this->view->detallesMedico($dataMedico);
+         }
+         else {
+             header("Location: " . BASE_URL . "login");
+         }
+    }
+
     //parsear html date input a input para sql
     //$input_date=$_POST['date'];
     //$date=date("Y-m-d H:i:s",strtotime($input_date));

@@ -109,4 +109,14 @@ class MedicModel
         
         return $agenda;
     }
+
+    public function getMedicById($idMedico){
+        $query = $this->db->prepare('SELECT * FROM medico WHERE nro_medico = ?');
+        $query->execute([$idMedico]);
+
+        $medico = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $medico;
+    }
+    
 }

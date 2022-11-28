@@ -42,5 +42,18 @@ class MedicView {
         $this->smarty->display('templates/login.tpl');
     }
 
+    public function homeMedico($dataMedico)
+    {
+        $this->smarty->assign('title', 'Home');
+        $this->smarty->assign('dataMedico', $dataMedico);
+        $this->smarty->display('templates/homeMedico.tpl');
+    }
+
+    public function detallesMedico($dataMedico)
+    {
+        $this->smarty->assign('title', 'Home');
+        $this->smarty->assign('dataMedico', $dataMedico);
+        $this->smarty->display('templates/detallesMedico.tpl');
+    }
     
 }
