@@ -47,3 +47,10 @@ input.username, input.password{
     background: #686868;
     transition: 0.25s;
 }
+.login-img{
+    position: absolute;
+    height: 638px;
+    width: 60%;
+    top: 57px;
+    left: 40%;
+}

@@ -23,7 +23,6 @@ $secretaryController = new SecretaryController();
 switch ($params[0]) {
     case 'admin':
         $medicController->showFirstPage();
-
         break;
     case 'nuevoMedico':
         $medicController->showNewMedicForm();

@@ -8,5 +8,6 @@
     <button type="submit" class="btn-submit">Ingresar</button>
     </form>
 </div>
+<img  class="login-img" src="templates\img\login-img.png"/>
 
 {include file='templates/footer.tpl'}
