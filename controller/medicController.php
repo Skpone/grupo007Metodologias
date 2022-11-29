@@ -149,11 +149,11 @@ class MedicController
                 $this->view->listMedicAgenda($agenda);
 
             } else if ($parteDia == 'manana') {
-                $agenda = $this->model->getMedicAgendaMorning($id);
+                $agenda = $this->model->getMedicAgendaMorning($id, $fechaDesde, $fechaHasta);
                 $this->view->listMedicAgenda($agenda);
 
             } else if ($parteDia == 'tarde') {
-                $agenda = $this->model->getMedicAgendaAfternoon($id);
+                $agenda = $this->model->getMedicAgendaAfternoon($id, $fechaDesde, $fechaHasta);
                 $this->view->listMedicAgenda($agenda);
             }
 
