@@ -51,7 +51,6 @@ class MedicController
     {
         $medics = $this->model->getMedicos();
         $this->view->showMedics($medics);
-        echo ('hola');
     }
 
     function addMedic()
