@@ -20,8 +20,9 @@ class MedicController
         $this->authHelper = new AuthHelper();
     }
 
-    function showMain() {
-        $this-> view -> showMain();
+    function showMain()
+    {
+        $this->view->showMain();
     }
 
     function showFirstPage()
@@ -29,7 +30,8 @@ class MedicController
         $this->view->showPage();
     }
 
-    function showNewMedicForm() {
+    function showNewMedicForm()
+    {
         $dataSecretarias = $this->modelS->getSecretarias();
         $this->view->showAddMedic($dataSecretarias);
     }
@@ -45,24 +47,26 @@ class MedicController
         }
     }
 
-    function displayMedics() {
+    function displayMedics()
+    {
         $medics = $this->model->getMedicos();
             $this->view->showMedics($medics);
-
+            echo('hola');
     }
 
-    function addMedic() {
+    function addMedic()
+    {
 
         if (!empty($_POST['nombre_usuario']) && !empty($_POST['contrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {
             $nombre_usuario = $_POST['nombre_usuario'];
             $contrasenia = password_hash($_POST['contrasenia'], PASSWORD_BCRYPT);
-            
+
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $obra_social = $_POST['obra-social'];
             $especialidad = $_POST['especialidad'];
             $nro_secretaria = $_POST['nro_secretaria'];
-            
+
             //se le pregunta a la BD si hay un medico con ese nombre de usuario (si no retorna nada es que no hay)
             $user = $this->model->getMedicByUsername($nombre_usuario);
 
@@ -74,13 +78,11 @@ class MedicController
                     $this->model->insertMedic($nombre_usuario, $contrasenia, $nombre, $apellido, $obra_social, $especialidad, $nro_secretaria);
                     header("Location: " . BASE_URL . "medicos");
                 }
-
             } else {
                 header("Location: " . BASE_URL . "nuevoMedico");
             }
-            
         } else {
-            
+
             header("Location: " . BASE_URL . "nuevoMedico");
         }
     }
@@ -100,11 +102,12 @@ class MedicController
         header("Location: " . BASE_URL . "secretarias");
     }
 
-    function showMedicAgenda($nombre_usuario){
-        if ($nombre_usuario != null){
+    function showMedicAgenda($nombre_usuario)
+    {
+        if ($nombre_usuario != null) {
             $medicId = $this->model->getMedicIdByUsername($nombre_usuario);
             $agenda = $this->model->getMedicAgenda($medicId);
-            if ($agenda != null){
+            if ($agenda != null) {
                 $this->view->listMedicAgenda($agenda);
             } else {
                 $this->view->listMedicAgenda($agenda = null);
@@ -112,7 +115,6 @@ class MedicController
         } else {
             header("Location: " . BASE_URL . "login");
         }
-    
     }
 
     public function displayLogin()
@@ -120,7 +122,8 @@ class MedicController
         $this->view->showLogin();
     }
 
-    public function loginMedico(){
+    public function loginMedico()
+    {
         if (!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -129,7 +132,7 @@ class MedicController
 
             if ($userMedico && password_verify($password, $userMedico->contrasenia)) {
                 $this->authHelper->login($userMedico);
-                header("Location: " . BASE_URL. "home-medico" . "/" . $userMedico->nro_medico);
+                header("Location: " . BASE_URL . "home-medico" . "/" . $userMedico->nro_medico);
             } else {
                 $this->view->showLogin('ERROR DE USUARIO O CONTRASEñA');
             }
@@ -139,10 +142,9 @@ class MedicController
     public function displayHomeMedico($idMedico)
     {
         if (isset($idMedico)) {
-           $dataMedico = $this->model->getMedicById($idMedico);
-           $this->view->homeMedico($dataMedico);
-        }
-        else {
+            $dataMedico = $this->model->getMedicById($idMedico);
+            $this->view->homeMedico($dataMedico);
+        } else {
             header("Location: " . BASE_URL . "login");
         }
     }
@@ -151,10 +153,9 @@ class MedicController
         if (isset($idMedico)) {
             $dataMedico = $this->model->getMedicById($idMedico);
             $this->view->detallesMedico($dataMedico);
-         }
-         else {
-             header("Location: " . BASE_URL . "login");
-         }
+        } else {
+            header("Location: " . BASE_URL . "login");
+        }
     }
 
     function logout()
@@ -163,28 +164,23 @@ class MedicController
         $this->authHelper->logout();
     }
 
-    public function filterByDate($id) {
-        $fechaDesde = date("Y-m-d H:i:s",strtotime($_POST['fecha-desde']));
-        $fechaHasta = date("Y-m-d H:i:s",strtotime($_POST['fecha-hasta']));
-        $parteDia = $_POST['parte-del-dia'];        
+    public function filterByDate($id)
+    {
+        $fechaDesde = date("Y-m-d H:i:s", strtotime($_POST['fecha-desde']));
+        $fechaHasta = date("Y-m-d H:i:s", strtotime($_POST['fecha-hasta']));
+        $parteDia = $_POST['parte-del-dia'];
 
         if (!empty($id)) {
             if (!empty($fechaDesde) && !empty($fechaHasta) && $parteDia == 'todos') {
                 $agenda = $this->model->getMedicAgendaAll($id, $fechaDesde, $fechaHasta);
                 $this->view->listMedicAgenda($agenda);
-
             } else if ($parteDia == 'manana') {
                 $agenda = $this->model->getMedicAgendaMorning($id, $fechaDesde, $fechaHasta);
                 $this->view->listMedicAgenda($agenda);
-
             } else if ($parteDia == 'tarde') {
                 $agenda = $this->model->getMedicAgendaAfternoon($id, $fechaDesde, $fechaHasta);
                 $this->view->listMedicAgenda($agenda);
             }
-
         }
-
     }
-
 }
-
