@@ -41,6 +41,12 @@ class MedicController
         }
     }
 
+    function displayMedics() {
+        $medics = $this->model->getMedicos();
+            $this->view->showMedics($medics);
+            echo('hola');
+    }
+
     function addMedic() {
 
         if (!empty($_POST['nombre_usuario']) && !empty($_POST['contrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['obra-social']) && !empty($_POST['especialidad'])) {

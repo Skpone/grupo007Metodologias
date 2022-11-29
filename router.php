@@ -52,6 +52,9 @@ switch ($params[0]) {
     case 'elegirMedico':
         $medicController->displayMedicsList($params[1]);
         break;
+    case 'medicos':
+        $medicController->displayMedics();
+        break;
     case 'asignarMedico':
         $medicController->asignarSecretaria($params[1], $params[2]);
         break;
