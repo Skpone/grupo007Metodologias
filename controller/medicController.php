@@ -169,17 +169,22 @@ class MedicController
         $fechaHasta = date("Y-m-d H:i:s", strtotime($_POST['fecha-hasta']));
         $parteDia = $_POST['parte-del-dia'];
 
-        if (!empty($id)) {
-            if (!empty($fechaDesde) && !empty($fechaHasta) && $parteDia == 'todos') {
-                $agenda = $this->model->getMedicAgendaAll($id, $fechaDesde, $fechaHasta);
-                $this->view->listMedicAgenda($agenda);
-            } else if ($parteDia == 'manana') {
-                $agenda = $this->model->getMedicAgendaMorning($id, $fechaDesde, $fechaHasta);
-                $this->view->listMedicAgenda($agenda);
-            } else if ($parteDia == 'tarde') {
-                $agenda = $this->model->getMedicAgendaAfternoon($id, $fechaDesde, $fechaHasta);
-                $this->view->listMedicAgenda($agenda);
+        if (!empty($id) && !empty($fechaDesde) && !empty($fechaHasta)) {
+            switch ($parteDia) {
+                case 'todos':
+                    $agenda = $this->model->getMedicAgendaAll($id, $fechaDesde, $fechaHasta);
+                    $this->view->listMedicAgenda($agenda);
+                    break;
+                case 'manana':
+                    $agenda = $this->model->getMedicAgendaMorning($id, $fechaDesde, $fechaHasta);
+                    $this->view->listMedicAgenda($agenda);
+                    break;
+                case 'tarde':
+                    $agenda = $this->model->getMedicAgendaAfternoon($id, $fechaDesde, $fechaHasta);
+                    $this->view->listMedicAgenda($agenda);
+                    break;
             }
         }
+        
     }
 }
