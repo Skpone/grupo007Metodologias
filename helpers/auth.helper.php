@@ -12,8 +12,8 @@ class AuthHelper
 
     public function login($user)
     {
-        $_SESSION['USER_ID'] = $user[0]->nro_medico;
-        $_SESSION['USER_NAME'] = $user[0]->nombre_usuario;
+        $_SESSION['USER_ID'] = $user->nro_medico;
+        $_SESSION['USER_NAME'] = $user->nombre_usuario;
     }
 
     public function checkLogedIn(){
