@@ -5,19 +5,19 @@
                 <tr class="filters">
                     <th>
                         Turnos
-                        <select id="buscar-turnos" name="buscar-turnos">
+                        <select id="buscar-turnos" name="parte-del-dia">
                             <option value="todos">Todos</option>
-                            <option value="mañana">Mañana</option>
+                            <option value="manana">Mañana</option>
                             <option value="tarde">Tarde</option>
                         </select>
                     </th>
                     <th>
                         Fecha Desde:
-                        <input type="date" class="form-control">
+                        <input name="fecha-desde" type="date" class="form-control">
                     </th>
                     <th>
                         Fecha Hasta:
-                        <input type="date" class="form-control">
+                        <input name="fecha-hasta" type="date" class="form-control">
                     </th>
    
             </head>
@@ -25,3 +25,4 @@
     </div>
 
 </form>
+
