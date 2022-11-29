@@ -8,4 +8,6 @@
     {/foreach}
 </div>
 
+{include file='templates/medicAgenda.tpl'}
+
 {include file='templates/footer.tpl'}

@@ -16,6 +16,14 @@ class AuthHelper
         $_SESSION['USER_NAME'] = $user->nombre_usuario;
     }
 
+    public function obtainUser()
+    {
+        $user;
+        $user->nro_medico = $_SESSION['USER_ID'];
+        $user->nombre_usuario =$_SESSION['USER_NAME']; 
+        return $user;
+    }
+
     public function checkLogedIn(){
         if (empty($_SESSION['USER_ID'])) {
             header("Location: " . BASE_URL);
