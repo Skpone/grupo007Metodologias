@@ -24,6 +24,7 @@ $authController = new AuthController();
 switch ($params[0]) {
     case 'main':
         $medicController->showMain();
+        break;
     case 'admin':
         $medicController->showFirstPage();
         break;
