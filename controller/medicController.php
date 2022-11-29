@@ -48,7 +48,7 @@ class MedicController
     function displayMedics() {
         $medics = $this->model->getMedicos();
             $this->view->showMedics($medics);
-            echo('hola');
+
     }
 
     function addMedic() {
@@ -131,7 +131,7 @@ class MedicController
                 $this->authHelper->login($userMedico);
                 header("Location: " . BASE_URL. "home-medico" . "/" . $userMedico->nro_medico);
             } else {
-                $this->view->showLogin();
+                $this->view->showLogin('ERROR DE USUARIO O CONTRASEñA');
             }
         }
     }
