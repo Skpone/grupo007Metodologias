@@ -62,7 +62,7 @@ switch ($params[0]) {
         $medicController->asignarSecretaria($params[1], $params[2]);
         break;
     case 'agendaMedico':
-        $medicController->showMedicAgenda($nombre_usuario);
+        $medicController->showMedicAgenda();
         break;
     case 'medicAgenda':
         $medicController->displayMedicsList();

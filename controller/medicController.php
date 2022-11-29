@@ -101,7 +101,7 @@ class MedicController
         header("Location: " . BASE_URL . "secretarias");
     }
 
-    function showMedicAgenda($nombre_usuario)
+    function showMedicAgenda()
     {
         if ($nombre_usuario != null) {
             $medicId = $this->model->getMedicIdByUsername($nombre_usuario);
