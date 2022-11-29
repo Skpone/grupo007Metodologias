@@ -10,7 +10,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'admin';
+    $action = 'main';
 }
 
 
@@ -22,6 +22,8 @@ $authController = new AuthController();
 
 
 switch ($params[0]) {
+    case 'main':
+        $medicController-> showMain();
     case 'admin':
         $medicController->showFirstPage();
         break;

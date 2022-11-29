@@ -9,6 +9,10 @@ class MedicView {
         $this->smarty = new Smarty();
     }
 
+    public function showMain() {
+        $this-> smarty -> display ('templates/main.tpl');
+    }
+
     public function showPage() {
         $this->smarty->assign('title', 'Home');
         $this->smarty->display('templates/firstPage.tpl');

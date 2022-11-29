@@ -20,6 +20,10 @@ class MedicController
         $this->authHelper = new AuthHelper();
     }
 
+    function showMain() {
+        $this-> view -> showMain();
+    }
+
     function showFirstPage()
     {
         $this->view->showPage();
