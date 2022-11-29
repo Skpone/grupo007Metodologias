@@ -119,12 +119,12 @@ class MedicModel
         return $medico;
     }
 
-    public function getUserMedico($username,$password)
+    public function getUserMedico($username)
     {
-        $query = $this->db->prepare('SELECT * FROM medico WHERE nombre_usuario = ? AND contrasenia = ?');
-        $query->execute([$username,$password]);
+        $query = $this->db->prepare('SELECT * FROM medico WHERE nombre_usuario = ?');
+        $query->execute([$username]);
 
-        $medico = $query->fetchAll(PDO::FETCH_OBJ);
+        $medico = $query->fetch(PDO::FETCH_OBJ);
         
         return $medico;
     }

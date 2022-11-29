@@ -40,9 +40,10 @@ class MedicView {
         $this->smarty->display('templates/medicAgenda.tpl');
     }
 
-    public function showLogin()
+    public function showLogin($error = null)
     {
         $this->smarty->assign('title', 'Login');
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
     }
 

@@ -125,13 +125,13 @@ class MedicController
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $userMedico = $this->model->getUserMedico($username,$password);
+            $userMedico = $this->model->getUserMedico($username);
 
-            if ($userMedico) {
+            if ($userMedico && password_verify($password, $userMedico->contrasenia)) {
                 $this->authHelper->login($userMedico);
-                header("Location: " . BASE_URL. "home-medico" . "/" . $userMedico[0]->nro_medico);
+                header("Location: " . BASE_URL. "home-medico" . "/" . $userMedico->nro_medico);
             } else {
-                $this->view->showLogin();
+                $this->view->showLogin('ERROR DE USUARIO O CONTRASEñA');
             }
         }
     }
