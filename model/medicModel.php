@@ -118,5 +118,15 @@ class MedicModel
         
         return $medico;
     }
+
+    public function getUserMedico($username,$password)
+    {
+        $query = $this->db->prepare('SELECT * FROM medico WHERE nombre_usuario = ? AND contrasenia = ?');
+        $query->execute([$username,$password]);
+
+        $medico = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $medico;
+    }
     
 }

@@ -23,7 +23,7 @@ $authController = new AuthController();
 
 switch ($params[0]) {
     case 'main':
-        $medicController-> showMain();
+        $medicController->showMain();
     case 'admin':
         $medicController->showFirstPage();
         break;
@@ -68,6 +68,9 @@ switch ($params[0]) {
         break;
     case 'login':
         $medicController->displayLogin();
+        break;
+    case 'loginMedico':
+        $medicController->loginMedico();
         break;
     case 'logout':
         $medicController->logout();

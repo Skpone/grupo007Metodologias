@@ -120,12 +120,27 @@ class MedicController
         $this->view->showLogin();
     }
 
+    public function loginMedico(){
+        if (!empty($_POST['username']) && !empty($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $userMedico = $this->model->getUserMedico($username,$password);
+
+            if ($userMedico) {
+                $this->authHelper->login($userMedico);
+                header("Location: " . BASE_URL. "home-medico" . "/" . $userMedico[0]->nro_medico);
+            } else {
+                $this->view->showLogin();
+            }
+        }
+    }
+
     public function displayHomeMedico($idMedico)
     {
         if (isset($idMedico)) {
            $dataMedico = $this->model->getMedicById($idMedico);
            $this->view->homeMedico($dataMedico);
-
         }
         else {
             header("Location: " . BASE_URL . "login");
